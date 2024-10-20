@@ -1,24 +1,35 @@
 # highload-art-gallery
 
-**Предметная область**: система для картинной галереи, продажи билетов на выставки и хранения данных о коллекции
-* Связь "многие-ко-многим" между пользователями и ролями, и между галереей и картинами
+**Subject Area**: Art gallery management, exhibition ticket sales, and collection data storage.
+
+There are many-to-many relationships between users and roles, as well as between galleries and paintings.
 
 
 ```mermaid
-    classDiagram
+   classDiagram
 
-    user "*" -- "*" role
-    user "1" -- "*" order
-    order "1" -- "*" ticket
-    exhibition "1" -- "*" ticket
-    exhibition "*" -- "1" gallery
-    gallery "*" -- "*"  painting
-    painting "*" -- "1" style
-    painting "*" -- "1" artist
+    class User
+    class Role
+    class Order
+    class Ticket
+    class Exhibition
+    class Gallery
+    class Painting
+    class Style
+    class Artist
+
+    User "*" -- "*" Role
+    User "1" -- "*" Order
+    Order "1" -- "*" Ticket
+    Exhibition "1" -- "*" Ticket
+    Exhibition "*" -- "1" Gallery
+    Gallery "*" -- "*" Painting
+    Painting "*" -- "1" Style
+    Painting "*" -- "1" Artist
 
 ```
 
 
-Архитектура базы данных:
+Database Schema:
 
 ![](doc/hl1.jpg)
